@@ -17,17 +17,15 @@ pipeline {
         stage('Test') {
             steps {
                 bat 'mvn test'
+                junit 'target/surefire-reports/*.xml'
             }
-            post {
+        }
+    }
+         post {
                 always {
                     junit 'target/surefire-reports/*.xml'
                 }
             }
         }
-        stage('Deliver') { 
-            steps {
-                bat './jenkins/scripts/deliver.sh' 
-            }
-        }
-    }
-}
+        
+
