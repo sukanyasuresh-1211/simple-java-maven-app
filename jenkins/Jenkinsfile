@@ -4,9 +4,9 @@ pipeline {
         skipStagesAfterUnstable()
     }
     stages {
-        stage('Build') {
+        stage('Checkout') {
             steps {
-                sh 'mvn -B -DskipTests clean package'
+                git 'https://github.com/sukanyasuresh-1211/simple-java-maven-app.git'
             }
         }
         stage('Test') {
