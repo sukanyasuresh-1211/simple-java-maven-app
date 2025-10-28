@@ -9,10 +9,10 @@ pipeline {
                 git 'https://github.com/sukanyasuresh-1211/simple-java-maven-app.git'
             }
         }
-        stage('Build) {
-              Steps {
-                  bat 'mvn clean install'
-              }
+        stage('Build') { 
+            steps { 
+                bat 'mvn clean install'
+            }
         }
         stage('Test') {
             steps {
